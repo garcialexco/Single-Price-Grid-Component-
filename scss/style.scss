@@ -1,0 +1,260 @@
+// Variables
+
+$cyan: #4ABEBD; 
+$darkCyan: #2BB3B1; 
+$yellow: #c0df34;
+$gray: hsl(204, 43%, 93%);
+$blueGray: hsl(218, 22%, 67%);
+
+
+// Background Styles
+
+body {
+    background-color: $gray;
+    margin: 0 auto;
+    height: 100%;
+    font-family: 'Karla', sans-serif;
+}
+
+body.dark-mode {
+    background-color: #232323;
+    transition: 0.3s ease, color 0.3s ease;
+}
+
+
+// General Component Styles
+
+
+.main--comp {
+    display: flex;
+    width: 19em;
+    margin: 5em auto 0 auto;
+    vertical-align: center;
+    flex-direction: column;
+    box-shadow: 0 0 30px -8px rgba(0, 0, 0, 0.4);
+}
+
+
+// Section Styles 
+
+.cell--container {
+    width: 85%;
+    margin: 0 auto;
+}
+
+
+// Cell 1
+
+.comp--cell1 {
+    background-color: white;
+    border-radius: 0.25em 0.25em 0 0;
+    grid-area: cell1;
+}
+
+.comp--cell1.dark-mode {
+    background-color: #2d2d2d;
+    transition: 0.3s ease, color 0.3s ease;
+}
+
+.cell1--title {
+    color: $darkCyan;
+    font-size: 1.25em;
+    margin-top: 1.5em;
+    margin-bottom: 1.25em;
+}
+
+.cell1--guarantee {
+    color: $yellow;
+    font-weight: 700;
+    margin-bottom: 1.5em;
+}
+
+.cell1--desc {
+    color: $blueGray;
+    font-size: 0.8em;
+    line-height: 2em;
+    margin-bottom: 2.5em;
+}
+
+
+// Cell 2
+
+.comp--cell2 {
+    background-color: $darkCyan;
+    color: white;
+    grid-area: cell2;
+}
+
+.cell2--title {
+    font-size: 1.25em;
+    margin-top: 1.5em;
+}
+
+.cell2--pricing {
+    font-size: 0.8em;
+    color: $gray;
+    display: flex;
+    align-items: center;
+}
+
+.cell2--pricing span {
+    color: white;
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-right: 0.2em;
+}
+
+.cell2--desc {
+    font-size: 0.9em;
+    margin-top: 0.30em;
+    margin-bottom: 2em;
+}
+
+.cell2--signup {
+    width: 100%;
+    height: 3em;
+    border: none;
+    border-radius: 0.25em;
+    background-color: $yellow;
+    color: white;
+    font-weight: 700;
+    margin-bottom: 1.5em;
+    box-shadow: 0 0 15px -6px rgba(0, 0, 0, 0.4);
+    transition: 0.3s ease, color 0.3s ease;
+}
+
+.cell2--signup:hover {
+    background-color: #adcb29;
+    transition: 0.3s ease, color 0.3s ease;
+}
+
+.cell2--signup:active {
+    background-color: #8ca519;
+}
+
+
+// Cell 3
+
+.comp--cell3 {
+    background-color: $cyan;
+    color: white;
+    border-radius: 0 0 0.25em 0.25em;
+    grid-area: cell3;
+}
+
+.comp--cell3.dark-mode {
+    background-color: #a7a7a7;
+    transition: 0.3s ease, color 0.3s ease;
+}
+
+.cell3--title {
+    font-size: 1.25em;
+    margin-top: 1.5em;
+}
+
+.cell3--title.dark-mode {
+    color: $gray;
+    transition: 0.3s ease, color 0.3s ease;
+}
+
+.cell3--desc {
+    list-style: none;
+    margin-left: -2.5em;
+    margin-bottom: 2em;
+}
+
+.cell3--desc li {
+    font-size: 0.75em;
+    color: $gray;
+    margin-bottom: 0.5em;
+}
+
+// dark mode slider 
+
+.switch--box {
+    margin: 0 auto 5em;
+    text-align: center;
+
+}
+
+.switch--title.dark-mode {
+    color: white;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $cyan;
+    -webkit-transformed: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px; 
+    background-color: white; 
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: $yellow;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px $yellow; 
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+@media (min-width: 1430px)  {
+    .main--comp {
+        display: grid;
+        grid-template-areas: 
+        "cell1 cell1"
+        "cell2 cell3";
+        width: 40em;
+        margin-top: 6em;
+    }
+
+    .comp--cell2 {
+        border-radius: 0 0 0 0.25em;
+    }
+
+    .comp--cell3 {
+        border-radius: 0 0 0.25em 0;
+    }
+}
